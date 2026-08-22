@@ -25,8 +25,17 @@ export async function middleware(request: NextRequest) {
 
   const { data: { user } } = await supabase.auth.getUser()
 
-  const isAuthRoute = request.nextUrl.pathname.startsWith('/login')
-  const isPendingRoute = request.nextUrl.pathname.startsWith('/en-attente')
+  const pathname = request.nextUrl.pathname
+  const isAuthRoute = pathname.startsWith('/login')
+  const isPendingRoute = pathname.startsWith('/en-attente')
+  // Routes toujours accessibles, sans redirection ni vérification d'approbation :
+  // /auth/callback échange le code AVANT qu'une session existe,
+  // /reset-password doit rester atteignable même juste après connexion via le lien de récupération.
+  const isPublicRoute = pathname.startsWith('/auth/callback') || pathname.startsWith('/reset-password')
+
+  if (isPublicRoute) {
+    return response
+  }
 
   // Pas connecté et essaie d'accéder à une page protégée -> login
   if (!user && !isAuthRoute) {

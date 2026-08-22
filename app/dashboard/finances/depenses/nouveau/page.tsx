@@ -25,15 +25,15 @@ export default async function NouvelleDepensePage() {
       <form action={createExpense} className="space-y-3 rounded-2xl bg-white p-4 shadow-soft dark:bg-surfacedark">
         <div>
           <label className="mb-1 block text-xs font-medium text-inkmuted dark:text-white/60">Libellé</label>
-          <input name="description" required className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10" />
+          <input name="description" required className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10 text-ink dark:text-white" />
         </div>
         <div>
           <label className="mb-1 block text-xs font-medium text-inkmuted dark:text-white/60">Montant (FCFA)</label>
-          <input name="montant" type="number" required className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10" />
+          <input name="montant" type="number" required className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10 text-ink dark:text-white" />
         </div>
         <div>
           <label className="mb-1 block text-xs font-medium text-inkmuted dark:text-white/60">Date</label>
-          <input name="date" type="date" defaultValue={new Date().toISOString().slice(0,10)} className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10" />
+          <input name="date" type="date" defaultValue={new Date().toISOString().slice(0,10)} className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10 text-ink dark:text-white" />
         </div>
         <button type="submit" className="w-full rounded-xl bg-ink py-3 text-sm font-medium text-white transition hover:bg-ink/90 dark:bg-gold dark:text-ink dark:hover:bg-gold/90">
           Enregistrer

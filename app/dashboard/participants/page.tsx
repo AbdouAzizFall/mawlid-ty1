@@ -40,15 +40,15 @@ export default async function ParticipantsPage({
           name="q"
           defaultValue={q}
           placeholder="Rechercher (nom, prénom, téléphone)"
-          className="w-full rounded-xl border border-paperline bg-white px-3 py-2.5 text-sm outline-none focus:border-gold dark:border-white/10 dark:bg-surfacedark"
+          className="w-full rounded-xl border border-paperline bg-white px-3 py-2.5 text-sm outline-none focus:border-gold dark:border-white/10 dark:bg-surfacedark text-ink dark:text-white"
         />
         <div className="flex gap-2">
-          <select name="sexe" defaultValue={sexe ?? ''} className="flex-1 rounded-xl border border-paperline bg-white px-2 py-2 text-xs dark:border-white/10 dark:bg-surfacedark">
+          <select name="sexe" defaultValue={sexe ?? ''} className="flex-1 rounded-xl border border-paperline bg-white px-2 py-2 text-xs dark:border-white/10 dark:bg-surfacedark text-ink dark:text-white">
             <option value="">Tous sexes</option>
             <option value="homme">Hommes</option>
             <option value="femme">Femmes</option>
           </select>
-          <select name="section" defaultValue={section ?? ''} className="flex-1 rounded-xl border border-paperline bg-white px-2 py-2 text-xs dark:border-white/10 dark:bg-surfacedark">
+          <select name="section" defaultValue={section ?? ''} className="flex-1 rounded-xl border border-paperline bg-white px-2 py-2 text-xs dark:border-white/10 dark:bg-surfacedark text-ink dark:text-white">
             <option value="">Toutes sections</option>
             {(Object.keys(SECTION_LABELS) as Section[]).map((s) => (
               <option key={s} value={s}>{SECTION_LABELS[s]}</option>

@@ -46,15 +46,15 @@ export default async function ModifierDepensePage({
         <input type="hidden" name="id" value={expense.id} />
         <div>
           <label className="mb-1 block text-xs font-medium text-inkmuted dark:text-white/60">Libellé</label>
-          <input name="description" defaultValue={expense.description} required className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10" />
+          <input name="description" defaultValue={expense.description} required className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10 text-ink dark:text-white" />
         </div>
         <div>
           <label className="mb-1 block text-xs font-medium text-inkmuted dark:text-white/60">Montant (FCFA)</label>
-          <input name="montant" type="number" required defaultValue={expense.montant} className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10" />
+          <input name="montant" type="number" required defaultValue={expense.montant} className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10 text-ink dark:text-white" />
         </div>
         <div>
           <label className="mb-1 block text-xs font-medium text-inkmuted dark:text-white/60">Date</label>
-          <input name="date" type="date" defaultValue={expense.date} className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10" />
+          <input name="date" type="date" defaultValue={expense.date} className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10 text-ink dark:text-white" />
         </div>
         <button type="submit" className="w-full rounded-xl bg-ink py-3 text-sm font-medium text-white transition hover:bg-ink/90 dark:bg-gold dark:text-ink dark:hover:bg-gold/90">
           Enregistrer les modifications

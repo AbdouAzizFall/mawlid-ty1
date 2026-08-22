@@ -34,6 +34,19 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [signupDone, setSignupDone] = useState(false)
+  const [resetSent, setResetSent] = useState(false)
+
+  async function handleForgotPassword() {
+    if (!email) {
+      setError('Renseigne ton email ci-dessus, puis clique à nouveau sur "Mot de passe oublié".')
+      return
+    }
+    setError(null)
+    await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/auth/callback?next=/reset-password`,
+    })
+    setResetSent(true)
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -102,7 +115,7 @@ export default function LoginPage() {
           <button
             onClick={() => setMode('login')}
             className={`flex-1 rounded-lg py-2 text-sm font-medium transition ${
-              mode === 'login' ? 'bg-white text-ink dark:text-white shadow-soft' : 'text-inkmuted dark:text-white/50'
+              mode === 'login' ? 'bg-white dark:bg-surfacedark text-ink dark:text-white shadow-soft' : 'text-inkmuted dark:text-white/50'
             }`}
           >
             Connexion
@@ -110,7 +123,7 @@ export default function LoginPage() {
           <button
             onClick={() => setMode('signup')}
             className={`flex-1 rounded-lg py-2 text-sm font-medium transition ${
-              mode === 'signup' ? 'bg-white text-ink dark:text-white shadow-soft' : 'text-inkmuted dark:text-white/50'
+              mode === 'signup' ? 'bg-white dark:bg-surfacedark text-ink dark:text-white shadow-soft' : 'text-inkmuted dark:text-white/50'
             }`}
           >
             Inscription
@@ -125,7 +138,7 @@ export default function LoginPage() {
                 required
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
-                className="w-full rounded-xl border border-paperline dark:border-white/10 px-3 py-2.5 text-sm outline-none transition focus:border-gold"
+                className="w-full rounded-xl border border-paperline dark:border-white/10 px-3 py-2.5 text-sm text-ink dark:text-white outline-none transition focus:border-gold"
                 placeholder="Ton nom et prénom"
               />
             </div>
@@ -138,7 +151,7 @@ export default function LoginPage() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-xl border border-paperline dark:border-white/10 px-3 py-2.5 text-sm outline-none transition focus:border-gold"
+              className="w-full rounded-xl border border-paperline dark:border-white/10 px-3 py-2.5 text-sm text-ink dark:text-white outline-none transition focus:border-gold"
               placeholder="toi@exemple.com"
             />
           </div>
@@ -151,7 +164,7 @@ export default function LoginPage() {
               minLength={6}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-xl border border-paperline dark:border-white/10 px-3 py-2.5 text-sm outline-none transition focus:border-gold"
+              className="w-full rounded-xl border border-paperline dark:border-white/10 px-3 py-2.5 text-sm text-ink dark:text-white outline-none transition focus:border-gold"
               placeholder="••••••••"
             />
           </div>
@@ -159,14 +172,29 @@ export default function LoginPage() {
           {error && (
             <p className="rounded-lg bg-spend/10 px-3 py-2 text-xs text-spend">{error}</p>
           )}
+          {resetSent && (
+            <p className="rounded-lg bg-money/10 px-3 py-2 text-xs text-money">
+              Email envoyé, si un compte existe avec cette adresse. Vérifie ta boîte mail.
+            </p>
+          )}
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-xl bg-ink py-2.5 text-sm font-medium text-white transition hover:bg-ink/90 disabled:opacity-50"
+            className="w-full rounded-xl bg-ink py-2.5 text-sm font-medium text-white transition hover:bg-ink/90 disabled:opacity-50 dark:bg-gold dark:text-ink"
           >
             {loading ? 'Patiente...' : mode === 'login' ? 'Se connecter' : "S'inscrire"}
           </button>
+
+          {mode === 'login' && (
+            <button
+              type="button"
+              onClick={handleForgotPassword}
+              className="w-full text-center text-xs text-inkmuted dark:text-white/50"
+            >
+              Mot de passe oublié ?
+            </button>
+          )}
         </form>
       </div>
     </div>

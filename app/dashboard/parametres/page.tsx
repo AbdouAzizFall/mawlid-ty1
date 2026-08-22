@@ -45,7 +45,7 @@ export default async function ParametresPage() {
               <p className="text-sm font-medium">{p.full_name}</p>
               {!p.is_approved && <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs text-amber-700">En attente</span>}
             </div>
-            <select name="role" defaultValue={p.role} className="w-full rounded-xl border border-paperline dark:border-white/10 px-3 py-2 text-sm">
+            <select name="role" defaultValue={p.role} className="w-full rounded-xl border border-paperline dark:border-white/10 px-3 py-2 text-sm text-ink dark:text-white">
               <option value="admin">Administrateur</option>
               <option value="gestionnaire_inscriptions">Gestionnaire inscriptions</option>
               <option value="gestionnaire_finances">Gestionnaire finances</option>

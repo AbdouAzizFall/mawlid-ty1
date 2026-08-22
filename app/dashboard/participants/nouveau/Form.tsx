@@ -23,11 +23,11 @@ export default function NouveauParticipantForm({
         <div className="grid grid-cols-2 gap-2">
           <div>
             <label className="mb-1 block text-xs font-medium text-inkmuted dark:text-white/60">Prénom</label>
-            <input name="prenom" required className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10" />
+            <input name="prenom" required className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10 text-ink dark:text-white" />
           </div>
           <div>
             <label className="mb-1 block text-xs font-medium text-inkmuted dark:text-white/60">Nom</label>
-            <input name="nom" required className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10" />
+            <input name="nom" required className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10 text-ink dark:text-white" />
           </div>
         </div>
 
@@ -57,7 +57,7 @@ export default function NouveauParticipantForm({
 
         <div>
           <label className="mb-1 block text-xs font-medium text-inkmuted dark:text-white/60">Téléphone</label>
-          <input name="telephone" type="tel" className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10" />
+          <input name="telephone" type="tel" className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10 text-ink dark:text-white" />
         </div>
 
         <div>
@@ -66,7 +66,7 @@ export default function NouveauParticipantForm({
             name="montant"
             type="number"
             required
-            className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10"
+            className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10 text-ink dark:text-white"
             placeholder="ex : 19000"
           />
           <p className="mt-1 text-xs text-inkmuted dark:text-white/50">
@@ -108,7 +108,7 @@ export default function NouveauParticipantForm({
 
         <div>
           <label className="mb-1 block text-xs font-medium text-inkmuted dark:text-white/60">Observation (optionnel)</label>
-          <textarea name="observation" rows={2} className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10" />
+          <textarea name="observation" rows={2} className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10 text-ink dark:text-white" />
         </div>
 
         <button type="submit" className="w-full rounded-xl bg-ink py-3 text-sm font-medium text-white transition hover:bg-ink/90 dark:bg-gold dark:text-ink dark:hover:bg-gold/90">

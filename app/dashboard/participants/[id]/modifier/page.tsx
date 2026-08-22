@@ -63,11 +63,11 @@ export default async function ModifierParticipantPage({
         <div className="grid grid-cols-2 gap-2">
           <div>
             <label className="mb-1 block text-xs font-medium text-inkmuted dark:text-white/60">Prénom</label>
-            <input name="prenom" defaultValue={participant.prenom} required className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10" />
+            <input name="prenom" defaultValue={participant.prenom} required className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10 text-ink dark:text-white" />
           </div>
           <div>
             <label className="mb-1 block text-xs font-medium text-inkmuted dark:text-white/60">Nom</label>
-            <input name="nom" defaultValue={participant.nom} required className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10" />
+            <input name="nom" defaultValue={participant.nom} required className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10 text-ink dark:text-white" />
           </div>
         </div>
 
@@ -97,12 +97,12 @@ export default async function ModifierParticipantPage({
 
         <div>
           <label className="mb-1 block text-xs font-medium text-inkmuted dark:text-white/60">Téléphone</label>
-          <input name="telephone" type="tel" defaultValue={participant.telephone ?? ''} className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10" />
+          <input name="telephone" type="tel" defaultValue={participant.telephone ?? ''} className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10 text-ink dark:text-white" />
         </div>
 
         <div>
           <label className="mb-1 block text-xs font-medium text-inkmuted dark:text-white/60">Montant (FCFA)</label>
-          <input name="montant" type="number" required defaultValue={participant.montant} className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10" />
+          <input name="montant" type="number" required defaultValue={participant.montant} className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10 text-ink dark:text-white" />
         </div>
 
         <div>
@@ -125,7 +125,7 @@ export default async function ModifierParticipantPage({
 
         <div>
           <label className="mb-1 block text-xs font-medium text-inkmuted dark:text-white/60">Observation</label>
-          <textarea name="observation" rows={2} defaultValue={participant.observation ?? ''} className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10" />
+          <textarea name="observation" rows={2} defaultValue={participant.observation ?? ''} className="w-full rounded-xl border border-paperline bg-transparent px-3 py-2.5 text-sm dark:border-white/10 text-ink dark:text-white" />
         </div>
 
         <button type="submit" className="w-full rounded-xl bg-ink py-3 text-sm font-medium text-white transition hover:bg-ink/90 dark:bg-gold dark:text-ink dark:hover:bg-gold/90">
