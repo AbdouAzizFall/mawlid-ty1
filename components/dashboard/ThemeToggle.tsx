@@ -14,6 +14,9 @@ export default function ThemeToggle() {
     setDark(next)
     document.documentElement.classList.toggle('dark', next)
     localStorage.setItem('theme', next ? 'dark' : 'light')
+    // Cookie lu côté serveur : le thème reste correct même après un rechargement
+    // complet de page (ex : après une redirection suite à un enregistrement).
+    document.cookie = `theme=${next ? 'dark' : 'light'}; path=/; max-age=31536000; SameSite=Lax`
   }
 
   return (

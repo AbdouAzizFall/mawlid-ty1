@@ -24,7 +24,7 @@ export default async function ParticipantsPage({
   if (sexe) query = query.eq('sexe', sexe)
   if (section) query = query.eq('section', section)
 
-  const { data: participants } = await query.limit(100)
+  const { data: participants } = await query
 
   return (
     <div className="space-y-4">
@@ -34,6 +34,9 @@ export default async function ParticipantsPage({
           + Ajouter
         </Link>
       </div>
+      <p className="-mt-3 text-xs text-inkmuted dark:text-white/50">
+        {participants?.length ?? 0} participant{(participants?.length ?? 0) > 1 ? 's' : ''} au total
+      </p>
 
       <form className="space-y-2" action="/dashboard/participants">
         <input

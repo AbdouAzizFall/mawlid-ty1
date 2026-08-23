@@ -12,7 +12,6 @@ export default async function DepensesPage() {
     .select('id, description, montant, date')
     .is('deleted_at', null)
     .order('date', { ascending: false })
-    .limit(100)
 
   const total = (expenses ?? []).reduce((s, e) => s + Number(e.montant), 0)
 

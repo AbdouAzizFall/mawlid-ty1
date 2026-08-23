@@ -11,7 +11,6 @@ export default async function RecettesPage() {
     .select('*, revenue_categories(label)')
     .is('deleted_at', null)
     .order('date', { ascending: false })
-    .limit(100)
 
   const total = (revenues ?? []).reduce((s, r) => s + Number(r.montant), 0)
 

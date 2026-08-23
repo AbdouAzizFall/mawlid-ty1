@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Domine, Manrope } from 'next/font/google'
+import { cookies } from 'next/headers'
 import './globals.css'
 import ThemeScript from '@/components/ThemeScript'
 
@@ -17,9 +18,18 @@ export const viewport: Viewport = {
   themeColor: '#16213A',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  // Thème lu directement côté serveur (cookie) : reste correct même après
+  // une redirection ou un rechargement complet de page.
+  const cookieStore = await cookies()
+  const theme = cookieStore.get('theme')?.value
+
   return (
-    <html lang="fr" className={`${display.variable} ${sans.variable}`} suppressHydrationWarning>
+    <html
+      lang="fr"
+      className={`${display.variable} ${sans.variable}${theme === 'dark' ? ' dark' : ''}`}
+      suppressHydrationWarning
+    >
       <head>
         <ThemeScript />
       </head>
